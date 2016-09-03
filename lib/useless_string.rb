@@ -8,6 +8,15 @@ class String
     str == other
   end
 
+  def only_spaces(other_str)
+    str   = self.dup
+    other = other_str.dup
+
+    remove_spaces(str, other)
+
+    str == other
+  end
+
   private
     def set_options(str, other_str, options)
       remove_carriage_return(str, other_str) if options[:carriage_return]
