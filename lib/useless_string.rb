@@ -1,20 +1,77 @@
 require 'useless_string/version'
+require 'without_helper'
 
 class String
-  def skip(other_str, options = {})
-    str = self.dup
-    other = other_str.dup
-    set_options(str, other, options)
+  include WithoutHelper
+
+  def eql_without?(other_str, options = {})
+    set_options(str = self.dup, other = other_str.dup, options)
     str == other
   end
 
-  def only_spaces(other_str)
-    str   = self.dup
-    other = other_str.dup
-
-    remove_spaces(str, other)
-
+  def eql_without_carriage_return?(other_str)
+    remove_carriage_return(str = self.dup, other = other_str.dup)
     str == other
+  end
+
+  def eql_without_line_feed?(other_str)
+    remove_line_feed(str = self.dup, other = other_str.dup)
+    str == other
+  end
+
+  def eql_without_end_of_line?(other_str)
+    remove_end_of_line(str = self.dup, other = other_str.dup)
+    str == other
+  end
+
+  def eql_without_spaces?(other_str)
+    remove_spaces(str = self.dup, other = other_str.dup)
+    str == other
+  end
+
+  def eql_without_numbers?(other_str)
+    remove_numbers(str = self.dup, other = other_str.dup)
+    str == other
+  end
+
+  def eql_without_special_characters?(other_str)
+    remove_special_characters(str = self.dup, other = other_str.dup)
+    str == other
+  end
+
+  def cmp_without(other_str, options = {})
+    set_options(str = self.dup, other = other_str.dup, options)
+    str <=> other
+  end
+
+  def cmp_without_carriage_return(other_str)
+    remove_carriage_return(str = self.dup, other = other_str.dup)
+    str <=> other
+  end
+
+  def cmp_without_line_feed(other_str)
+    remove_line_feed(str = self.dup, other = other_str.dup)
+    str <=> other
+  end
+
+  def cmp_without_end_of_line(other_str)
+    remove_end_of_line(str = self.dup, other = other_str.dup)
+    str <=> other
+  end
+
+  def cmp_without_spaces(other_str)
+    remove_spaces(str = self.dup, other = other_str.dup)
+    str <=> other
+  end
+
+  def cmp_without_numbers(other_str)
+    remove_numbers(str = self.dup, other = other_str.dup)
+    str <=> other
+  end
+
+  def cmp_without_special_characters(other_str)
+    remove_special_characters(str = self.dup, other = other_str.dup)
+    str <=> other
   end
 
   private
@@ -25,35 +82,5 @@ class String
       remove_spaces(str, other_str) if options[:spaces]
       remove_numbers(str, other_str) if options[:numbers]
       remove_special_characters(str, other_str) if options[:special_characters]
-    end
-
-    def remove_carriage_return(str, other_str)
-      str.gsub!(/\r/, '')
-      other_str.gsub!(/\r/, '')
-    end
-
-    def remove_line_feed(str, other_str)
-      str.gsub!(/\n/, '')
-      other_str.gsub!(/\n/, '')
-    end
-
-    def remove_end_of_line(str, other_str)
-      str.gsub!(/\r\n/, '')
-      other_str.gsub!(/\r\n/, '')
-    end
-
-    def remove_spaces(str, other_str)
-      str.gsub!(/ /, '')
-      other_str.gsub!(/ /, '')
-    end
-
-    def remove_numbers(str, other_str)
-      str.gsub!(/\d/, '')
-      other_str.gsub!(/\d/, '')
-    end
-
-    def remove_special_characters(str, other_str)
-      str.gsub!(/[^\da-z]+/i, '')
-      other_str.gsub!(/[^\da-z]+/i, '')
     end
 end
