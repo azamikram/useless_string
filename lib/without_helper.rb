@@ -25,7 +25,17 @@ module WithoutHelper
   end
 
   def remove_special_characters(str, other_str)
-    str.gsub!(/[^\da-z]+/i, '')
+    str.gsub!(/[^\da-z]+/, '')
     other_str.gsub!(/[^\da-z]+/i, '')
+  end
+
+  def remove_this(str, other_str, target)
+    str.gsub!(/#{target.to_s}/, '')
+    other_str.gsub!(/#{target.to_s}/, '')
+  end
+
+  def remove_this_regex(str, other_str, regex)
+    str.gsub!(regex, '')
+    other_str.gsub!(regex, '')
   end
 end
