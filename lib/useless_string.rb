@@ -8,11 +8,11 @@ class String
     str == other
   end
 
-  def only(other_str, option)
+  def only_spaces(other_str)
     str   = self.dup
     other = other_str.dup
 
-    remove_spaces(str, other) if option == :spaces
+    remove_spaces(str, other)
 
     str == other
   end
