@@ -38,7 +38,6 @@ module CompareWithout
     else
       remove_this(str = self.dup, other = other_str.dup, target)
     end
-    puts str, other
     str <=> other
   end
 
