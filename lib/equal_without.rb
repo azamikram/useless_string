@@ -38,5 +38,9 @@ module UselessString
     def eql_without_these?(other_str, array)
       cmp_without_these(other_str, array) == 0
     end
+
+    def eql_without_these_words?(other_str, array)
+      cmp_without_theses_words(other_str, array) == 0
+    end
   end
 end

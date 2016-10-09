@@ -48,6 +48,12 @@ module UselessString
     end
 
     alias_method :cmp_without_these, :cmp_without_this
+
+    def cmp_without_theses_words(other_str, array)
+      remove_these_words!(str = self.dup, other = other_str.dup, array.dup)
+      str <=> other
+    end
+
     alias_method :cmp_without_regex, :cmp_without_this
   end
 end

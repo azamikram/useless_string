@@ -36,5 +36,10 @@ module UselessString
       str.gsub!(regex, '')
       other_str.gsub!(regex, '')
     end
+
+    def remove_these_words!(str, other_str, array)
+      array.map { |w| Regexp.escape(w) }
+      remove_this_regex!(str, other_str, Regexp.union(array))
+    end
   end
 end
