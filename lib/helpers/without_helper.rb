@@ -1,46 +1,38 @@
 module UselessString
   module WithoutHelper
-    def remove_carriage_return(str, other_str)
-      str.gsub!(/\r/, '')
-      other_str.gsub!(/\r/, '')
+    def remove_carriage_return!(str, other_str)
+      remove_this_regex!(str, other_str, /\r/)
     end
 
-    def remove_line_feed(str, other_str)
-      str.gsub!(/\n/, '')
-      other_str.gsub!(/\n/, '')
+    def remove_line_feed!(str, other_str)
+      remove_this_regex!(str, other_str, /\n/)
     end
 
-    def remove_end_of_line(str, other_str)
-      str.gsub!(/\r\n/, '')
-      other_str.gsub!(/\r\n/, '')
+    def remove_end_of_line!(str, other_str)
+      remove_this_regex!(str, other_str, /\r\n/)
     end
 
-    def remove_spaces(str, other_str)
-      str.gsub!(/ /, '')
-      other_str.gsub!(/ /, '')
+    def remove_spaces!(str, other_str)
+      remove_this_regex!(str, other_str, / /)
     end
 
-    def remove_numbers(str, other_str)
-      str.gsub!(/\d/, '')
-      other_str.gsub!(/\d/, '')
+    def remove_numbers!(str, other_str)
+      remove_this_regex!(str, other_str, /\d/)
     end
 
-    def remove_special_characters(str, other_str)
-      str.gsub!(/[^\da-zA-Z]+/, '')
-      other_str.gsub!(/[^\da-zA-Z]+/i, '')
+    def remove_special_characters!(str, other_str)
+      remove_this_regex!(str, other_str, /[^\da-z]+/i)
     end
 
-    def remove_alphabets(str, other_str)
-      str.gsub!(/[a-zA-Z]+/, '')
-      other_str.gsub!(/[a-zA-Z]+/i, '')
+    def remove_alphabets!(str, other_str)
+      remove_this_regex!(str, other_str, /[a-z]+/i)
     end
 
-    def remove_this(str, other_str, target)
-      str.gsub!(/#{target.to_s}/, '')
-      other_str.gsub!(/#{target.to_s}/, '')
+    def remove_this!(str, other_str, target)
+      remove_this_regex!(str, other_str, /#{target.to_s}/)
     end
 
-    def remove_this_regex(str, other_str, regex)
+    def remove_this_regex!(str, other_str, regex)
       str.gsub!(regex, '')
       other_str.gsub!(regex, '')
     end

@@ -25,6 +25,10 @@ module UselessString
       cmp_without_special_characters(other_str) == 0
     end
 
+    def eql_without_alphabets?(other_str)
+      cmp_without_alphabets(other_str)
+    end
+
     def eql_without_this?(other_str, target)
       cmp_without_this(other_str, target) == 0
     end
