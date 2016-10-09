@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "useless_string"
   spec.version       = UselessString::VERSION
   spec.authors       = ["Azam", "Ali Nawazish"]
-  spec.email         = ["azamikram101@yahoo.com", "m_ali3119@yahoo.com"]
+  spec.email         = ["azam.ikram22@gmail.com", "m_ali3119@yahoo.com"]
 
   spec.summary       = %q{Advance string comparison in ruby.}
   # TODO add proper description.

@@ -1,12 +1,9 @@
-# UselessString
+# useless_string
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/useless_string`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Its a simple gem that removes useless characters from two strings and then compare them to see if they
+are both the same or not.
 
 ## Installation
-
-Add this line to your application's Gemfile:
 
 ```ruby
 gem 'useless_string'
@@ -22,7 +19,37 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Just require the useless_string `require 'useless_string'` and all th appropriate methods will be available
+in `string` class.
+
+```console
+$ require 'useless_string'
+=> true
+$ first = "Sum of 2 + 2 is 4"
+=> "Sum of 2 + 2 is 4"
+$ second = "2 + 2 = 4"
+=> "2 + 2 = 4"
+$ first.eql_with_only?(second, numbers: true)
+=> true
+```
+
+There is also a method `eql_without?` which will take a string and an options hash. You can use
+ `eql_*` or `cmp_*`. For now `*_without` accept these options
+ 
+```ruby
+:carriage_return
+:line_feed
+:end_of_line
+:spaces
+:numbers
+:special_characters
+```
+and `*_with_only` accept only
+
+```ruby
+:numbers
+:alphabets
+```
 
 ## Development
 
@@ -32,10 +59,9 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/useless_string. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/azam-noob/useless_string. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
