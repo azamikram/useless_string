@@ -43,12 +43,15 @@ There is also a method `eql_without?` which will take a string and an options ha
 :spaces
 :numbers
 :special_characters
+:alphabets
+:case_insensitive
 ```
 and `*_with_only` accept only
 
 ```ruby
 :numbers
 :alphabets
+:case_insensitive
 ```
 
 ## Development

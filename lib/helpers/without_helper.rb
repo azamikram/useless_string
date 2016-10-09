@@ -30,6 +30,11 @@ module UselessString
       other_str.gsub!(/[^\da-zA-Z]+/i, '')
     end
 
+    def remove_alphabets(str, other_str)
+      str.gsub!(/[a-zA-Z]+/, '')
+      other_str.gsub!(/[a-zA-Z]+/i, '')
+    end
+
     def remove_this(str, other_str, target)
       str.gsub!(/#{target.to_s}/, '')
       other_str.gsub!(/#{target.to_s}/, '')
