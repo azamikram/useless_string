@@ -45,6 +45,7 @@ There is also a method `eql_without?` which will take a string and an options ha
 :special_characters
 :alphabets
 :case_insensitive
+:words # takes an array of words
 ```
 and `*_with_only` accept only
 

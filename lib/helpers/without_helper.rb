@@ -13,7 +13,7 @@ module UselessString
     end
 
     def remove_spaces!(str, other_str)
-      remove_this_regex!(str, other_str, / /)
+      remove_this_regex!(str, other_str, / |\\t/)
     end
 
     def remove_numbers!(str, other_str)
