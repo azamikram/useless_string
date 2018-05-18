@@ -37,9 +37,12 @@ module UselessString
       other_str.gsub!(regex, '')
     end
 
-    def remove_these_words!(str, other_str, array)
-      array.map { |w| Regexp.escape(w) }
-      remove_this_regex!(str, other_str, Regexp.union(array))
+    def remove_these_words!(str, other_str, target_list, case_insensitive: true)
+      target_list.map { |w| Regexp.escape(w.to_str) }
+      remove_this_regex!(str,
+                         other_str,
+                         Regexp.new(Regexp.union(target_list).source,
+                                    case_insensitive))
     end
   end
 end

@@ -34,8 +34,8 @@ $ first.eql_with_only?(second, numbers: true)
 ```
 
 There is also a method `eql_without?` which will take a string and an options hash. You can use
- `eql_*` or `cmp_*`. For now `*_without` accept these options
- 
+ `eql_*` or `cmp_*`. For now `*_without` accepts these options
+
 ```ruby
 :carriage_return
 :line_feed
@@ -47,7 +47,7 @@ There is also a method `eql_without?` which will take a string and an options ha
 :case_insensitive
 :words # takes an array of words
 ```
-and `*_with_only` accept only
+and `*_with_only` accepts only
 
 ```ruby
 :numbers

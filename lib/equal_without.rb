@@ -1,28 +1,27 @@
 module UselessString
   module EqualWithout
-
     def eql_without_carriage_return?(other_str)
-      cmp_without_carriage_return(other_str) == 0
+      cmp_without_carriage_return(other_str).zero?
     end
 
     def eql_without_line_feed?(other_str)
-      cmp_without_line_feed(other_str) == 0
+      cmp_without_line_feed(other_str).zero?
     end
 
     def eql_without_end_of_line?(other_str)
-      cmp_without_end_of_line(other_str) == 0
+      cmp_without_end_of_line(other_str).zero?
     end
 
     def eql_without_spaces?(other_str)
-      cmp_without_spaces(other_str) == 0
+      cmp_without_spaces(other_str).zero?
     end
 
     def eql_without_numbers?(other_str)
-      cmp_without_numbers(other_str) == 0
+      cmp_without_numbers(other_str).zero?
     end
 
     def eql_without_special_characters?(other_str)
-      cmp_without_special_characters(other_str) == 0
+      cmp_without_special_characters(other_str).zero?
     end
 
     def eql_without_alphabets?(other_str)
@@ -30,17 +29,15 @@ module UselessString
     end
 
     def eql_without_this?(other_str, target)
-      cmp_without_this(other_str, target) == 0
+      cmp_without_this(other_str, target).zero?
     end
 
-    alias_method :eql_without_regex?, :eql_without_this?
+    alias eql_without_regex? eql_without_this?
 
-    def eql_without_these?(other_str, array)
-      cmp_without_these(other_str, array) == 0
+    def eql_without_these_words?(other_str, target_list, case_insensitive: true)
+      cmp_without_theses_words(other_str, target_list, case_insensitive).zero?
     end
 
-    def eql_without_these_words?(other_str, array)
-      cmp_without_theses_words(other_str, array) == 0
-    end
+    alias eql_without_these? eql_without_these_words?
   end
 end
